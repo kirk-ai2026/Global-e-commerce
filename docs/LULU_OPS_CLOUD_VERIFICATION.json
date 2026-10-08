@@ -27,5 +27,10 @@
   "scheduler_time": "07:00",
   "media_objects": 533,
   "upstream_revision": "wujie-merch-ops-shadow-archv3-0930-0741",
-  "upstream_image_sha256": "6a268dabd8752cc3829078fa1ba6bee289071216d8dd881722d87b985a6c40c2"
+  "upstream_image_sha256": "6a268dabd8752cc3829078fa1ba6bee289071216d8dd881722d87b985a6c40c2",
+  "cloud_revision": "lulu-merch-ops-00003-rjx",
+  "cloud_image_digest": "sha256:99e90e942739a7972cd5c4a323a33241c84a5af42a32e757b0a0bce52c5087a5",
+  "tests_passed": 71,
+  "selected_sku_count": 96,
+  "lulu_content_level": "C2_MERCH_STANDARD"
 }
