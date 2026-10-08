@@ -4,6 +4,8 @@
 
 本服务读取完整来源证据，不依赖某次 Run 或台湾选品结果。商品事实、SKU、媒体、语言内容和发布资格分别保存。首版没有 Shopify 写接口，也没有搜索 Agent。
 
+项目仓库：[kirk-ai2026/Global-e-commerce](https://github.com/kirk-ai2026/Global-e-commerce)。三人并行的模块责任、接口和里程碑见 [Lulu 三人分工与技术 Roadmap](docs/TEAM_ROADMAP.md)。
+
 ## 安装与启动
 
 Python 3.11+、PostgreSQL 16+。

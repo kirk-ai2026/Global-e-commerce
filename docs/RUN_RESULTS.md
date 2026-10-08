@@ -18,4 +18,4 @@
 
 完整本地报告和导出：`exports/FULL/REPORT.md`、`exports/FULL/audit.json`、`exports/FULL/products.csv`、`exports/FULL/products.jsonl`、`exports/FULL/issues.jsonl`。30 商品报告在 `exports/CANARY30/`。
 
-这些文件和实际数据库／媒体不进入 Git。私有 GitHub 创建仍待恢复认证；本地源代码、测试与运行说明可独立交付。
+这些文件和实际数据库／媒体不进入 Git。项目仓库已由用户创建为 [kirk-ai2026/Global-e-commerce](https://github.com/kirk-ai2026/Global-e-commerce)；本机访问认证与远端同步状态单独核验。当前三人协作计划见 [模块分工与 Roadmap](TEAM_ROADMAP.md)。
