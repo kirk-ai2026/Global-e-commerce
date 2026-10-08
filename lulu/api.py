@@ -13,6 +13,12 @@ from .core import LOCALE, data_dir
 from .storage import Store
 
 
+class JobRequest(BaseModel):
+    freeze_id: str | None = None
+    product_ids: list[str] | None = None
+    limit: int | None = Field(None, ge=1, le=100)
+
+
 def create_app(store=None, root=None):
     store = store or Store()
     root = (root or data_dir()).resolve()
@@ -164,11 +170,6 @@ def create_app(store=None, root=None):
             "items": rows,
             "after": rows[-1]["product_id"] if len(rows) == limit else None,
         }
-
-    class JobRequest(BaseModel):
-        freeze_id: str | None = None
-        product_ids: list[str] | None = None
-        limit: int | None = Field(None, ge=1, le=100)
 
     @app.post("/v1/jobs", dependencies=protected, status_code=202)
     def create_job(body: JobRequest):

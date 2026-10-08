@@ -213,6 +213,12 @@ def test_api_contract_authorization_and_no_search(store, frozen, tmp_path, monke
     run(store, jid, root=tmp_path / "assets")
     app = create_app(store, tmp_path / "assets")
     with TestClient(app) as client:
+        schema = client.get("/openapi.json")
+        assert schema.status_code == 200
+        assert "/v1/products/{pid}/media-evidence" in schema.json()["paths"]
+        created = client.post("/v1/jobs", json={"freeze_id": frozen})
+        assert created.status_code == 202 and created.json()["job_id"] == jid
+        assert client.post("/v1/jobs", json={"limit": 0}).status_code == 422
         assert client.get("/health").status_code == 200
         assert client.get("/v1/products?locale=en").status_code == 422
         row = client.get("/v1/products").json()["items"][0]
