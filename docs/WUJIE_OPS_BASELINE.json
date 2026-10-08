@@ -1,0 +1,23 @@
+{
+  "base_url": "https://wujie-merch-ops-shadow-wiv3tqv5ua-de.a.run.app",
+  "image_digest": "sha256:6a268dabd8752cc3829078fa1ba6bee289071216d8dd881722d87b985a6c40c2",
+  "build_id": "ops-source-text-20260930",
+  "files": {
+    "index.html": {
+      "source_sha256": "71f1b3f662ee6c79f521a7b3c8e690db8f0eeab5572485134eb4691de84e7fa1",
+      "bytes": 2885
+    },
+    "app.js": {
+      "source_sha256": "da3dadb4d4b667ad6b2be27f8c73905f2bdc937be6f28a98d9500d0f6e0180bf",
+      "bytes": 38404
+    },
+    "app.css": {
+      "source_sha256": "cbeda20695734bb586e168861a16c963435329fb2f3fa7ad41b2cc89edd03824",
+      "bytes": 8596
+    },
+    "app-v2.css": {
+      "source_sha256": "4d7c58971456c8c8b3862a89a8e5e0d0fbf0755b18974dd5ef5b603fc7bfa8d4",
+      "bytes": 6360
+    }
+  }
+}

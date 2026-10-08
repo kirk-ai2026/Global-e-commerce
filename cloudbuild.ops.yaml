@@ -1,0 +1,7 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-f', 'Dockerfile.ops', '-t', 'asia-east1-docker.pkg.dev/zenheart/zenheart/lulu-merch-ops:cloud-ops-v1', '.']
+images:
+  - asia-east1-docker.pkg.dev/zenheart/zenheart/lulu-merch-ops:cloud-ops-v1
+options:
+  logging: CLOUD_LOGGING_ONLY

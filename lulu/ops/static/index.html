@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lulu｜加拿大商品运营工作台</title>
+  <link rel="stylesheet" href="/app.css">
+  <link rel="stylesheet" href="/app-v2.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><span class="eyebrow">LULU / CANADA OPS</span><h1>商品运营工作台</h1></div>
+    <div class="stage"><span class="dot"></span>加拿大简中 · CAD 临时参考报价 · 仅内部审核</div>
+  </header>
+  <main>
+    <section class="toolbar">
+      <label class="search"><span>搜索</span><input id="search" placeholder="品牌、简中标题、商品/SKU ID"></label>
+      <label><span>运营状态</span><select id="statusFilter"><option value="">全部可审商品</option><option value="OPS_REVIEW">待运营审核</option><option value="RECONFIRM_REQUIRED">需重新确认</option><option value="OPS_APPROVED">内部审核通过</option><option value="BRAND_REVIEW">品牌地区待确认</option><option value="NEEDS_EVIDENCE">待补证</option><option value="DEFERRED">暂缓</option></select></label>
+      <label><span>媒体</span><select id="mediaFilter"><option value="">全部</option><option value="M2">M2 以上</option><option value="M1">M1 已有主图</option></select></label>
+      <label><span>天猫国际类目</span><select id="categoryFilter"><option value="">全部类目</option></select></label>
+      <label><span>商品产地</span><select id="originFilter"><option value="">全部产地</option></select></label>
+      <label><span>品牌所属国</span><select id="brandCountryFilter"><option value="">全部品牌国</option></select></label>
+      <label><span>审核分组</span><select id="reviewCohortFilter"><option value="">全部 Lulu 商品</option><option value="current">当前导入范围</option></select></label>
+      <button id="refresh" class="secondary">刷新</button><button id="refreshFx" class="secondary">更新汇率</button><span id="fxInfo" class="fx-info"></span>
+    </section>
+    <section class="workspace">
+      <div class="list-panel">
+        <div class="list-head"><b>商品队列</b><span id="visibleCount"></span></div>
+        <div id="spuList" class="spu-list" aria-live="polite"><div class="shop-empty">正在读取可审商品…</div></div>
+        <nav class="list-pagination" aria-label="商品翻页">
+          <button id="prevPage" class="secondary" type="button">上一页</button>
+          <span id="pageInfo"></span>
+          <button id="nextPage" class="secondary" type="button">下一页</button>
+        </nav>
+      </div>
+      <article id="detail" class="detail empty">
+        <div class="empty-state"><b>选择商品</b><span>查看加拿大简中商品预览、采购依据和 CAD 定价。</span></div>
+      </article>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

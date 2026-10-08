@@ -1,0 +1,1667 @@
+{
+  "freeze_id": "LCF-e971db1cee32033fbd8b11ae",
+  "audit": {
+    "regions": {
+      "HK": 3,
+      "JP": 57,
+      "KR": 24,
+      "MY": 1,
+      "TH": 1
+    },
+    "excluded": 187,
+    "imported": 89,
+    "paid_calls": 0,
+    "import_errors": [],
+    "localized_pass": 89,
+    "shopify_writes": 0,
+    "upstream_total": 276,
+    "included_target": 86,
+    "upstream_writes": 0,
+    "brand_review_target": 3,
+    "media_sync_failures": 0
+  },
+  "fx": {
+    "url": "https://www.bankofcanada.ca/valet/observations/FXCNYCAD/json?recent=5",
+    "date": "2026-10-07",
+    "fx_id": "FX-f0349e69e7ac16ff3ad25cbf",
+    "series": "FXCNYCAD",
+    "source": "BANK_OF_CANADA",
+    "currency": "CAD",
+    "cad_per_cny": "0.2126",
+    "retrieved_at": "2026-10-08T08:36:39.620331+00:00",
+    "base_currency": "CNY"
+  },
+  "categories": {
+    "beauty": 71,
+    "food": 10,
+    "mother_baby": 3,
+    "unknown": 2
+  },
+  "content_ready": 86,
+  "needs_evidence": 0,
+  "brand_review": 3,
+  "media": {
+    "n": 533,
+    "bytes": "475633102"
+  },
+  "results": [
+    {
+      "cluster_id": "HUR4-098f070812a866b62761",
+      "title": "POLA 宝丽 玫瑰沁香沐浴露 500ml",
+      "brand": "POLA/保丽",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-ff6946005df1b591c4d7117d3e8e7bbf",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 3,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "23.33"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-0aed27ebebf987345557",
+      "title": "shu uemura 植村秀 新臻萃养肤洁颜油 50ml｜1瓶",
+      "brand": "Shu-uemura/植村秀",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-4a1ea43eed76258b8ab79c327cefc5b3",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "19.02"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-12c8008867c1dff09cf8",
+      "title": "楼上 特选盐焗脆腰果（带皮）227g",
+      "brand": "楼上",
+      "brand_region": "HK",
+      "scope": "INCLUDED",
+      "category": "food",
+      "source_snapshot_id": "LS-32b5adbcb5983eae470a8e86f452860a",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "9.36"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-159a8612f5906d004244",
+      "title": "SANA 莎娜 泡沫慕斯洗面乳 200ml ×3瓶",
+      "brand": "sana/莎娜",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-0fe01b8dc1b3034839424b428eea465d",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 2,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "40.77",
+        "40.77"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-15d955d60086b1ec1785",
+      "title": "SK-II R.N.A. 超肌能紧致活肤霜 15g",
+      "brand": "SK-II",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-dc5e008c26b7e7421177b45300b8f04b",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "35.03"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-17984ae1d5494552be30",
+      "title": "BATH&BLOOM 泰国茉莉按摩油 170ml",
+      "brand": "BATH&BLOOM",
+      "brand_region": "TH",
+      "scope": "INCLUDED",
+      "category": "mother_baby",
+      "source_snapshot_id": "LS-c3d7b841d444c9d279e5ed01db3756f0",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "37.85"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-197f58a861971d35f1af",
+      "title": "LOTTE 乐天／嘉云糖果系列｜冰淇淋棒棒糖、混合水果软糖、水果夹心糖",
+      "brand": "LOTTE/乐天（韩国）",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "food",
+      "source_snapshot_id": "LS-b3667a42d1e1a9ba86c47cb153f28ec0",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 8,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "23.20",
+        "44.15",
+        "10.50",
+        "6.31",
+        "5.58",
+        "5.71",
+        "5.71",
+        "5.71"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-245568018ed8110dca37",
+      "title": "maruman 麦如满 纳豆激酶4200FU胶囊 120粒／瓶",
+      "brand": "Maruman",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "unknown",
+      "source_snapshot_id": "LS-741b53134fc11c6fc13c96dddd93474f",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "63.94"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-452579c51e9729227dfc",
+      "title": "AVANCE 睫毛滋养精华液 EX 7ml",
+      "brand": "avance",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-4d8fafa49ef3dfa6c92a75bd76d13a69",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "23.96"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-46db94e8a1763224ab68",
+      "title": "Cetaphil 丝塔芙舒润保湿霜 大白罐 566g",
+      "brand": "Cetaphil/丝塔芙",
+      "brand_region": null,
+      "scope": "REVIEW",
+      "category": "beauty",
+      "source_snapshot_id": "LS-7368c3080992337d9e09e25b03e08b91",
+      "ready": false,
+      "blockers": [
+        "品牌所属地区待确认"
+      ],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "38.04"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-47d2b2ee3a9c67df822f",
+      "title": "SAM'U 香膏防晒棒 SPF50+ PA++++ 20g 一盒2支（10g+10g）",
+      "brand": "SAM'U",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-0d45c8e0cb39574facd429c6ab6f569f",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "40.15"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-4c3233ea3085e5ceb27a",
+      "title": "Curél 珂润润浸保湿滋养乳霜 40g",
+      "brand": "curel/珂润",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-b039c378b6b006fd4ee508003a79eb21",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "35.41"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-4cba9958ed8d613fe83d",
+      "title": "naturie 薏仁保湿化妆水 500ml",
+      "brand": "naturie",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-e8d8ed768cf44bd012e900f3e668417b",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "16.33"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-512455c6f75f459c5c07",
+      "title": "SHISEIDO 资生堂 男士活力均衡水 150ml",
+      "brand": "Shiseido/资生堂",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-d62b7ecc5f42fd2edef10bc936993808",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "53.89"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-51d6558ed456defacd1f",
+      "title": "SHISEIDO 资生堂 FUTURE SOLUTION LX 时光琉璃御藏臻润洗面乳 125ml",
+      "brand": "资生堂",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-b5bbf2c0dfb73ce57c4af456fa5e0d5d",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "82.94"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-52ef69b6f21a52bc2571",
+      "title": "Club mini经典款素颜晚安蜜粉饼 12g｜玫瑰花香",
+      "brand": "Club",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-d2fc75cc0ad645bb5131b1a3fb0775f5",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "15.74"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-5435715af782b106f397",
+      "title": "Cetaphil 舒特肤（丝塔芙）大白罐保湿乳霜 453g",
+      "brand": "Cetaphil/丝塔芙",
+      "brand_region": null,
+      "scope": "REVIEW",
+      "category": "beauty",
+      "source_snapshot_id": "LS-5dcafa99d844506e9f4a11792cf70850",
+      "ready": false,
+      "blockers": [
+        "品牌所属地区待确认"
+      ],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "51.24"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-582d4fff4468dd367b93",
+      "title": "SKIN1004 积雪草茶树修护精华 100ml／1支",
+      "brand": "skin1004",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-1fc8946f48136c73e351b2c2ac10cd0c",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "48.31"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-58d8080119381a7bdd2a",
+      "title": "Koh Gen Do 江原道 超细保湿定妆蜜粉 12g",
+      "brand": "Koh Gen Do/江原道",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-d633b0d030b169b4ad596cb94c2cd888",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "66.99"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-5a54f68306830ba15ece",
+      "title": "ANESSA 安耐晒小金瓶防晒乳 SPF50+ PA++++ 60.0ml 新版",
+      "brand": "ANESSA/安热沙",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-04490c4bf4e7bdb10b9f7e358809738b",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "31.16"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-5b4380f99290ae8f64fb",
+      "title": "SO.NATURAL FIXX 雾面控油定妆喷雾 75ml｜油性肌肤适用",
+      "brand": "sonatural for your skin",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-fd7897d5d5ed05b43ae237700eac0448",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "33.82"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-5cfbaabe629ed1b71485",
+      "title": "Pigeon 贝亲 日本版婴儿抚触按摩润肤油 80ml",
+      "brand": "Pigeon/贝亲",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "mother_baby",
+      "source_snapshot_id": "LS-e3ac6974eb2c084dc8c1c6c2c3fb3ecf",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "12.48"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-618be75f081cd3dee1f5",
+      "title": "Bifesta 缤若诗眼唇卸妆液 145ml",
+      "brand": "mandom/漫丹",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-572ac3aa2ae8fcf5d4ceafe7b920989f",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "16.56"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-61db588717f44bb78f7b",
+      "title": "AHC B5 玻尿酸保湿洗面乳 180ml",
+      "brand": "A.H.C/爱和纯",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-ef54aea4675599784f6e2b4d35e999d9",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "21.68"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-633f948235ddce55dca4",
+      "title": "CPB 肌肤之钥 光纱柔雾蜜粉 N1 明亮色",
+      "brand": "CPB/肌肤之钥",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-d2a4ddbf9b5aad906deb717a235da929",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "173.78"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-64e2caed0e4527a2c740",
+      "title": "CPB 肌肤之钥 光凝润采妆前霜 37ml 长管｜全肤质 SPF25 PA++",
+      "brand": "CPB/肌肤之钥",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-4b69fc41358949b2a1e900bcc009f020",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "80.71"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-6a1ce8d56ff50aa9f078",
+      "title": "黛珂 DECORTÉ 薄荷紫苏高机能化妆水 300ml",
+      "brand": "Cosme Decorte/黛珂",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-49a2cbff71e6939a6538980867f97c54",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "90.13"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-6ce9333c6cc2e9aceb2e",
+      "title": "AQUALABEL 水之印 五效合一保湿凝胶霜 90g",
+      "brand": "AQUALABEL/水之印",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-255b32cbdadd4739750ae3f02565d3bb",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "34.98"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-6d91b28aace2a7e98245",
+      "title": "HBAF 芭蜂 蜂蜜奶油扁桃仁 35g×12袋",
+      "brand": "HBAF/芭蜂",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "food",
+      "source_snapshot_id": "LS-2edaa088fe101603908b5e9b7523287a",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "27.88"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-6eaa7214103adc933a95",
+      "title": "松山油脂 MATSUYAMA 薄荷锅煮皂液沐浴露 380ml",
+      "brand": "MATSUYAMA/松山油脂",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-fc6b830d91f737afb841bd9e53e4b4f0",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "24.37"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-6fab9016dd8218655652",
+      "title": "花王 Biore u 温和泡沫洗手液补充包 430ml*3｜淡香",
+      "brand": "KAO/花王",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "mother_baby",
+      "source_snapshot_id": "LS-c813b267120b572f8421ea72c678b3be",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "27.87"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-704a08718bf6f3b4a892",
+      "title": "ANESSA 安耐晒 2026年新版亮白防晒凝胶 SPF50+ PA++++ 90.00g",
+      "brand": "ANESSA/安热沙",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-0585529029bcbe7675325ed12d5c73ab",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "37.34"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-71a3f987e0e3a17cac24",
+      "title": "SHISEIDO 资生堂 新艳阳夏臻效水动力防晒乳 50ml SPF50+ PA++++",
+      "brand": "shiseido/资生堂",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-11c229cfea505220b6f4824f94f9d58d",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "80.11"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-7218e6568f9ca56d8267",
+      "title": "UHA悠哈 Puccho普超水果味软糖 50g（10粒）",
+      "brand": "UHA/悠哈",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "food",
+      "source_snapshot_id": "LS-3384a993a802768452db807d61b6915d",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "2.45"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-72256de88809a8de2ece",
+      "title": "明色 MEISHOKU 胎盘精华保湿眼霜 30.1g 新版",
+      "brand": "meishoku/明色",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-ec5a7b038a46b1d0b06312d2d81472dc",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "18.94"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-724614aeddbbf87f2d7a",
+      "title": "MATSUYAMA 松山油脂 肌润保湿乳霜 50g",
+      "brand": "MATSUYAMA/松山油脂",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-1334e91fefecc7879606905805382246",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "37.33"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-77c78e2ddbf996899993",
+      "title": "d'Alba 黛尔珀 维他焕彩胶囊面霜 55g｜单瓶装",
+      "brand": "d'Alba/黛尔珀",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-62a4e9f1b6090687464eb4ca00c91070",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "77.87"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-784ee272a84c3b899747",
+      "title": "Milbon 玫丽盼盈舞蓬松慕斯 200g",
+      "brand": "Milbon",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-d60212cce2dc4b8af05ee9e626150b3a",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "35.31"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-78d068c0d63ef944491c",
+      "title": "Deonatulle 杜得乐 净味止汗爽身粉 15g",
+      "brand": "Deonatulle/杜得乐",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-ce25ec88ca919d4fceb5b64882e09599",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "37.65"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-7afc323a7d23fb1c71fe",
+      "title": "Deonatulle 杜得乐清爽净味止汗爽身粉替换装 15g",
+      "brand": "Deonatulle/杜得乐",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-ace9ebe550610ef190fe6e712a2c56db",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "21.18"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-83ba6e677251c7831bc1",
+      "title": "ettusais 艾杜纱 纤长卷翘睫毛打底膏 6g",
+      "brand": "Ettusais/艾杜纱",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-348371fdf25fcb7ff529f40b7a33a095",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "23.73"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-8c11f2740a521b9196ed",
+      "title": "freeplus 芙丽芳丝 水润保湿清爽乳液 100ml 新版",
+      "brand": "Freeplus/芙丽芳丝",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-bd1c4c4c79ff65bd344102c8011d89f8",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "40.04"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-8db5af3d554177b19118",
+      "title": "KOSÉ 高丝 softymo SPEEDY 快速卸妆油 720ml 三瓶装",
+      "brand": "kose/高丝",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-fc81cbd52a0ce1f68bd010e31ade3c39",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "50.23"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-8f10efe8377702212e3d",
+      "title": "UHA 悠哈 普超ぷっちょ葡萄味软糖 50g（10粒）",
+      "brand": "UHA/悠哈",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "food",
+      "source_snapshot_id": "LS-ba02eb45a36caf0f0ee1c6198c7b8a2a",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "2.31"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-902c9c3161f8d61224bb",
+      "title": "楼上 NOBEL VC-3000 柠檬喉糖 90g 袋装",
+      "brand": "楼上",
+      "brand_region": "HK",
+      "scope": "INCLUDED",
+      "category": "food",
+      "source_snapshot_id": "LS-e0fc4019bb815e58b56fc2af41f493f9",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "6.27"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-95ec29e0acbb37062e7b",
+      "title": "ELIXIR 怡丽丝尔优悦活颜眼唇抚纹紧致精华霜 44g（22g × 2支装）",
+      "brand": "Elixir/怡丽丝尔",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-200ef4f922062a3b01025ffbc432d1c4",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "175.55"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-9954d83667ccc227d90c",
+      "title": "SK-II 舒透护肤洁面乳 20g",
+      "brand": "SK-II",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-91d44ccde0db491a5cb49f1dfce56e0f",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "14.11"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-9b1d8d2dc50b38a7f978",
+      "title": "LANEIGE 兰芝雪纱隔离妆前乳｜40号紫色新版 30ml",
+      "brand": "Laneige/兰芝",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-75a5393b5ac979826651a3745a606fb1",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "40.07"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-9b939cf0c447092ef091",
+      "title": "Julie's 茱蒂丝混合口味饼干组合 107g／1盒",
+      "brand": "Julie＇s/茱蒂丝",
+      "brand_region": "MY",
+      "scope": "INCLUDED",
+      "category": "food",
+      "source_snapshot_id": "LS-3ca8e57f127cf4230e3d37a8dcc075f8",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "4.78"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-9d21c0b543b52bb1fbe8",
+      "title": "楼上 美国原粒红莓干（蔓越莓干）454g｜原味",
+      "brand": "楼上",
+      "brand_region": "HK",
+      "scope": "INCLUDED",
+      "category": "food",
+      "source_snapshot_id": "LS-b3db48b68dd95bf1f034571a42c99270",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "10.76"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-9e5e925e6908b1553a54",
+      "title": "The history of Whoo 后 拱辰享泡沫洁面乳 40ml（中样）",
+      "brand": "The history of whoo/后",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-e1f85b90dff79541119dc77f6df12bbe",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "8.00"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-9eea0e5eb93b2a255520",
+      "title": "HERB 健康本舖 金装植物酵素 GOLD 150粒／盒",
+      "brand": "herb健康本铺",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "unknown",
+      "source_snapshot_id": "LS-0349fda6b68a1875468cc9c0fecf48e9",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "80.12"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-9ffe2eeac0018acfb580",
+      "title": "IPSA 茵芙莎光透无瑕修饰三色遮瑕膏 e 4.5g",
+      "brand": "IPSA/茵芙莎",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-df9fe790082de55691c110572223c90e",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "82.29"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-a37b12acefbbe45281d6",
+      "title": "COSRX BHA 黑头粉刺调理化妆水 100ml",
+      "brand": "COSRX",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-914f14eb6aa1cf5a49e9c97860ecd63c",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "36.30"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-a3894db0edf69b647dac",
+      "title": "COSRX 超轻盈隐形防晒霜 SPF 50 PA++++ 50ml",
+      "brand": "COSRX",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-90fbb5be7963b3656aa2e3c66fd0e261",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "27.13"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-a5e66397c4dd59d4c007",
+      "title": "Deonatulle 杜得乐 CC止汗修色净味膏 20g",
+      "brand": "Deonatulle/杜得乐",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-a460aaf3508a436d537f24b54a55a9a9",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "24.52"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-a753289e9edb86e8b101",
+      "title": "COSRX 半乳糖酵母95焕亮精华水 280ml｜1支",
+      "brand": "COSRX",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-6c8cf74e7e2f8490ea3ee1ea2e8f36ed",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "57.19"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-aa2061d5262ec35952de",
+      "title": "CPB 肌肤之钥 晶致赋活精华露 35ml（7ml*5）",
+      "brand": "CPB/肌肤之钥",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-a9752e61fdab457a5fc99f0a206323dd",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "81.52"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-ad50acb107259b9b0f53",
+      "title": "ANESSA 安耐晒粉金瓶亲肤型防晒乳 SPF50+ PA++++ 60ml 新版",
+      "brand": "ANESSA/安耐晒",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-c2de289434f5cd0aeb0c38f6f615e758",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "40.42"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-ad99eab8f7d03a6ad504",
+      "title": "COSRX 6胜肽焕活精华液 150ml／1支【部分即期】",
+      "brand": "COSRX",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-16521eb291a481b8585b043dbc8a0ab3",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "48.42"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-af66ebaaec48c962e940",
+      "title": "BANILA CO 芭妮兰 Clean it Zero 净柔卸妆膏 舒缓款 100ml（紫罐）",
+      "brand": "Banila CO/芭妮兰",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-b24bd5d8c23b6f69cd207607555d58e9",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "53.91"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-b33baa23bc5646c53620",
+      "title": "SK-II 护肤洁面霜 20gx3",
+      "brand": "SK-II",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-036a711774c654862c53ffe8e43a68c7",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "44.13"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-b36a0d3a1e7ae13ec7d3",
+      "title": "UHA 悠哈 超爽黑薄荷糖 74g｜日本进口・无糖",
+      "brand": "UHA悠哈",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "food",
+      "source_snapshot_id": "LS-71e8503cca5a4442f4ec77bcee6888bb",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "5.15"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-b53151d36d1c893c94ff",
+      "title": "shu uemura 植村秀琥珀洁颜油 450ml｜卸养合一",
+      "brand": "Shu-uemura/植村秀",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-7c4456399b42d82fe555cc8ff9f018f6",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "167.44"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-b5f8696f5b0aae94a9f1",
+      "title": "Curél 珂润 润浸保湿2号化妆水（保湿型）150g｜27年4月",
+      "brand": "Curel/珂润",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-64f3cba0f107d45925761aca6b99474e",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "16.44"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-b94efb8ef51f5d4bdba2",
+      "title": "Bifesta 缤若诗眼唇卸妆液 145ml｜水油双层配方",
+      "brand": "mandom/漫丹",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-d99206be4b4e78321c74da082d8accaf",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "19.10"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-ba04d21cc666b77b7211",
+      "title": "Curél 珂润 润浸保湿滋养乳霜 40g",
+      "brand": "Curel/珂润",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-c59ceb7cf2bb1604f66d42c345c697c4",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "35.41"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-bbf424b1120924b0ee88",
+      "title": "Sulwhasoo 雪花秀 顺行柔和洁颜泡沫",
+      "brand": "SULWHASOO/雪花秀",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-e89a8c0e1e471be984ab42c6709f1aa1",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 3,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "17.41",
+        "33.64",
+        "65.35"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-bdcb739ab5a374a5b642",
+      "title": "Deonatulle 杜得乐 清透净味止汗石 60g｜无香湿用型",
+      "brand": "Deonatulle/杜得乐",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-7ed4c27b01d47ba4ceaadfaa0ff1bfb3",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "24.23"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-be0bf6d81253c28d0d17",
+      "title": "ANESSA 安耐晒小金瓶防晒乳 SPF50+ PA++++ 60.0ml",
+      "brand": "ANESSA/安热沙",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-36a4f54872e3cd33abb55e6861fe3023",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "52.18"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-be70db733b3df56e2875",
+      "title": "Cetaphil 舒特肤大白罐保湿霜 453g｜日版（含烟碱醯胺）",
+      "brand": "cetaphil/丝塔芙",
+      "brand_region": null,
+      "scope": "REVIEW",
+      "category": "beauty",
+      "source_snapshot_id": "LS-85dd3943a399bb701a190e6ec93b0c62",
+      "ready": false,
+      "blockers": [
+        "品牌所属地区待确认"
+      ],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "25.52"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-be8992f1fbb68b99681b",
+      "title": "The Botanist 植物学家艾雷岛干琴酒 700ml｜46% vol",
+      "brand": "The Botanist",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "food",
+      "source_snapshot_id": "LS-ee841fd51922f88349b7ef3967b6d1e5",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "83.95"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-bff967f17fddeb94a1b3",
+      "title": "LANEIGE 兰芝多效深层洁面乳｜150g 洁面卸妆二合一",
+      "brand": "Laneige/兰芝",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-4abfa7182e5b458cfefa4a40d3d02596",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "62.96"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-c126be94fe4ea013d8bf",
+      "title": "Club 素颜晚安粉 安眠款 26g｜Sleepy Moon 香味",
+      "brand": "Club",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-933efd7b0c3f1b291ee40cb2ecc1fe09",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "30.37"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-c1aa66fc8d15e26b14d7",
+      "title": "D-UP 假睫毛胶水 EX552 透明型 5ml",
+      "brand": "DUP",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-02f44929277112e7664a8b7977a2126a",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "16.60"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-cae67365b29eacdcd75a",
+      "title": "Foellie 玫瑰香私密香水 5ml｜花香调",
+      "brand": "foellie",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-6d00276d7046b1194b623afa04438c15",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "20.90"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-cbe0656315a4a0ed2241",
+      "title": "AXXZIA 奥仕妃御颜晶采臻璨凝时眼霜 15g",
+      "brand": "AXXZIA",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-baf28c9f1102f5a3b1cba33046dcd3df",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "117.60"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-cddc3c6bbeb6c073f23c",
+      "title": "Sulwhasoo 雪花秀顺行柔和洁颜泡沫 100ml（50ml × 2瓶）",
+      "brand": "SULWHASOO/雪花秀",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-9a599c42a4405df610fb2f9743a86b73",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "21.06"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-d27df5a4814b1a452890",
+      "title": "COVERMARK 亮颜美肌CC霜 7g SPF50+ PA++++",
+      "brand": "COVERMARK/珂芙缦",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-8ba10028d10dc0beaf8579684ddae8c2",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "13.69"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-d379601216b485a0f5d7",
+      "title": "Club 素颜保湿蜜粉饼 mini经典款 玫瑰花香 12g",
+      "brand": "Club",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-081c59e508e2658ca31782de0773dff5",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "15.89"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-da682fd0fade237aa405",
+      "title": "LANEIGE 兰芝保湿修护睡眠唇膜 EX 莓果 20g",
+      "brand": "Laneige/兰芝",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-a5b17e4779702d061a9df3b3a8cac426",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "19.58"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-e1c942c9ca373f0e510a",
+      "title": "BE PLAIN 绿豆弱酸性洗面乳 80g ×2支",
+      "brand": "BE PLAIN",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-8c89c11b189862a02a4ba866ae282796",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "46.11"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-e411b54d0657459875b7",
+      "title": "AHC 男士专研焕活保湿化妆水 150ml",
+      "brand": "A.H.C/爱和纯",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-c8f985b3f723bdea1a51f816e315cc37",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "28.32"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-e4f62ae45764bcd2f05f",
+      "title": "SKIN1004 积雪草玻尿酸水感防晒精华 SPF50+ PA++++ 100ml",
+      "brand": "skin1004",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-a7d1567b2e6e7cecddc396ed398be997",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "56.10"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-e5c1bd4e0e4f43fce66c",
+      "title": "fino 透润美容液护发素 550mL",
+      "brand": "Fino/芬浓",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-148553433d7ffe2935265dba7a5d54e3",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "15.33"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-f0bce107d4fc15cc6b01",
+      "title": "Deonatulle 杜得乐 Soft Stone Double 腋下止汗石 20g 2倍升级版",
+      "brand": "Deonatulle/杜得乐",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-0847e254126f56721c7a8e9465ce5630",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "17.39"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-f4f946c465ec77b56111",
+      "title": "A.H.C 玻尿酸水润光采洁面泡沫 50ml",
+      "brand": "A.H.C/爱和纯",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-0397f5139b80a1fed258dadda27f79e4",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "5.60"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-f68c2765e6aed209f85c",
+      "title": "COSRX 弱酸性早安洁面凝胶 150ml",
+      "brand": "COSRX",
+      "brand_region": "KR",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-7e14b07476f4b23cfd1c4127848a5861",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "24.52"
+      ]
+    },
+    {
+      "cluster_id": "HUR4-f87a97a094d24c4d2b4f",
+      "title": "SK-II 深层清洁保湿洁面乳 20ml",
+      "brand": "SK-II",
+      "brand_region": "JP",
+      "scope": "INCLUDED",
+      "category": "beauty",
+      "source_snapshot_id": "LS-0fd9ca2eb1c41f0adeb198c40c459eff",
+      "ready": true,
+      "blockers": [],
+      "sku_count": 1,
+      "withheld": 0,
+      "sku_ids_equal": true,
+      "media_local": true,
+      "prices": [
+        "14.73"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "url": "https://lulu-merch-ops-wiv3tqv5ua-de.a.run.app",
+  "listings": 86,
+  "brand_review": 3,
+  "japan": 57,
+  "korea": 24,
+  "pola_cad": "23.33",
+  "write_save": "PASS",
+  "old_watermark_rejected": true,
+  "internal_approval": "PASS",
+  "manual_fx": "PASS",
+  "fx": {
+    "source": "BANK_OF_CANADA",
+    "series": "FXCNYCAD",
+    "url": "https://www.bankofcanada.ca/valet/observations/FXCNYCAD/json?recent=5",
+    "date": "2026-10-07",
+    "cad_per_cny": "0.2126",
+    "currency": "CAD",
+    "base_currency": "CNY",
+    "fx_id": "FX-f0349e69e7ac16ff3ad25cbf",
+    "retrieved_at": "2026-10-08T09:00:13.465854+00:00"
+  },
+  "shopify_writes": 0,
+  "upstream_writes": 0,
+  "scheduler_status": 200,
+  "scheduler_timezone": "Asia/Shanghai",
+  "scheduler_time": "07:00",
+  "media_objects": 533,
+  "upstream_revision": "wujie-merch-ops-shadow-archv3-0930-0741",
+  "upstream_image_sha256": "6a268dabd8752cc3829078fa1ba6bee289071216d8dd881722d87b985a6c40c2"
+}

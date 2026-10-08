@@ -1,0 +1,98 @@
+{
+  "count": 10,
+  "results": [
+    {
+      "cluster_id": "HUR4-098f070812a866b62761",
+      "sku_ids_equal": true,
+      "all_media_local": true,
+      "ready": true,
+      "price_count": 1,
+      "withheld": 3
+    },
+    {
+      "cluster_id": "HUR4-0aed27ebebf987345557",
+      "sku_ids_equal": true,
+      "all_media_local": true,
+      "ready": true,
+      "price_count": 1,
+      "withheld": 0
+    },
+    {
+      "cluster_id": "HUR4-12c8008867c1dff09cf8",
+      "sku_ids_equal": true,
+      "all_media_local": true,
+      "ready": true,
+      "price_count": 1,
+      "withheld": 0
+    },
+    {
+      "cluster_id": "HUR4-159a8612f5906d004244",
+      "sku_ids_equal": true,
+      "all_media_local": true,
+      "ready": true,
+      "price_count": 2,
+      "withheld": 0
+    },
+    {
+      "cluster_id": "HUR4-15d955d60086b1ec1785",
+      "sku_ids_equal": true,
+      "all_media_local": true,
+      "ready": true,
+      "price_count": 1,
+      "withheld": 0
+    },
+    {
+      "cluster_id": "HUR4-17984ae1d5494552be30",
+      "sku_ids_equal": true,
+      "all_media_local": true,
+      "ready": true,
+      "price_count": 1,
+      "withheld": 0
+    },
+    {
+      "cluster_id": "HUR4-197f58a861971d35f1af",
+      "sku_ids_equal": true,
+      "all_media_local": true,
+      "ready": true,
+      "price_count": 8,
+      "withheld": 0
+    },
+    {
+      "cluster_id": "HUR4-245568018ed8110dca37",
+      "sku_ids_equal": true,
+      "all_media_local": true,
+      "ready": true,
+      "price_count": 1,
+      "withheld": 0
+    },
+    {
+      "cluster_id": "HUR4-452579c51e9729227dfc",
+      "sku_ids_equal": true,
+      "all_media_local": true,
+      "ready": true,
+      "price_count": 1,
+      "withheld": 0
+    },
+    {
+      "cluster_id": "HUR4-bbf424b1120924b0ee88",
+      "sku_ids_equal": true,
+      "all_media_local": true,
+      "ready": true,
+      "price_count": 3,
+      "withheld": 0
+    }
+  ],
+  "fx": {
+    "url": "https://www.bankofcanada.ca/valet/observations/FXCNYCAD/json?recent=5",
+    "date": "2026-10-07",
+    "fx_id": "FX-f0349e69e7ac16ff3ad25cbf",
+    "series": "FXCNYCAD",
+    "source": "BANK_OF_CANADA",
+    "currency": "CAD",
+    "cad_per_cny": "0.2126",
+    "retrieved_at": "2026-10-08T08:36:39.620331+00:00",
+    "base_currency": "CNY"
+  },
+  "shopify_writes": 0,
+  "upstream_writes": 0
+}
