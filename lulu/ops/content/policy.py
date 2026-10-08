@@ -33,7 +33,10 @@ class Profile:
 
     @property
     def sha(self):
-        return digest([asdict(self), "semantic-media-v2-bound-regions-safe-edge-crop"])
+        rules = [asdict(self), "semantic-media-v2-bound-regions-safe-edge-crop"]
+        if self.locale == "en":
+            rules.append("external-language-v3-all-scripts-explicit-english")
+        return digest(rules)
 
     @property
     def copy_contract(self):

@@ -3,6 +3,8 @@ from __future__ import annotations
 import html
 import io
 import re
+import time
+import unicodedata
 
 from PIL import Image
 
@@ -17,12 +19,37 @@ CHANNEL = re.compile(
 CHANNEL_CATEGORIES = {"PLATFORM", "PRICE_PROMOTION", "LOGISTICS", "SERVICE"}
 
 
+def external_language_status(regions):
+    """Unknown Latin text must not silently pass the English localization gate."""
+    unconfirmed = False
+    for region in regions:
+        if region.get("placement") == "PACKAGE":
+            continue
+        value = str(region.get("source_text") or "")
+        letters = [c for c in value if c.isalpha() and c not in "µμ"]
+        if not letters:
+            continue
+        declared = str(
+            region.get("source_language") or region.get("language") or ""
+        ).lower()
+        if any("LATIN" not in unicodedata.name(c, "") for c in letters):
+            return "NON_ENGLISH"
+        if (
+            declared
+            and declared not in {"en", "english"}
+            and not declared.startswith("en-")
+        ):
+            return "NON_ENGLISH"
+        if not declared:
+            unconfirmed = True
+    return "UNCONFIRMED" if unconfirmed else "ENGLISH_OR_NO_EXTERNAL_TEXT"
+
+
 def assess_image(image, regions, p, selected_skus, authoritative_skus=None):
     """Visual observations are facts; eligibility is role/market-specific."""
     facts = image.get("visual_facts") or {}
     product = []
     channel = []
-    languages = []
     other_sku_regions = 0
     applicable_regions = set()
     source_ids = set(authoritative_skus or selected_skus)
@@ -42,9 +69,6 @@ def assess_image(image, regions, p, selected_skus, authoritative_skus=None):
             channel.append(region)
         elif value.strip():
             product.append(region)
-        languages.extend(
-            re.findall(r"[\u3040-\u30ff]|[\uac00-\ud7af]|[\u4e00-\u9fff]", value)
-        )
     result = {
         "asset_id": image.get("asset_id"),
         "profile_id": p.profile_id,
@@ -87,9 +111,17 @@ def assess_image(image, regions, p, selected_skus, authoritative_skus=None):
         result["operation"] = "REGION_REVIEW"
         result["reasons"].append("LEGACY_CHANNEL_FLAG_NEEDS_REGION_REVIEW")
     if not p.retain_product_text:
-        if p.locale == "en" and (languages or facts.get("external_simplified_text")):
-            result["reasons"].append("EXTERNAL_NON_ENGLISH_TEXT")
-            result["operation"] = "LOCALIZE_TEXT"
+        if p.locale == "en":
+            language_status = external_language_status(product)
+            result["external_language_status"] = language_status
+            if language_status == "NON_ENGLISH" or facts.get(
+                "external_simplified_text"
+            ):
+                result["reasons"].append("EXTERNAL_NON_ENGLISH_TEXT")
+                result["operation"] = "LOCALIZE_TEXT"
+            elif language_status == "UNCONFIRMED":
+                result["reasons"].append("EXTERNAL_LANGUAGE_UNCONFIRMED")
+                result["operation"] = "REGION_REVIEW"
         if p.locale == "zh-Hant" and facts.get("external_simplified_text"):
             result["reasons"].append("EXTERNAL_SIMPLIFIED_TEXT")
             result["operation"] = "LOCALIZE_TEXT"
@@ -159,6 +191,7 @@ def safe_edge_crop_box(image, regions, width, height):
 
 
 def prepare_media(evidence, p, selected_skus, assets=None, repo=None):
+    start = time.monotonic()
     bundle = evidence["bundle"]
     source_ids = {
         str(s.get("source_sku_id") or s.get("platform_sku_id"))
@@ -274,6 +307,7 @@ def prepare_media(evidence, p, selected_skus, assets=None, repo=None):
         "image_edits": 0,
         "deterministic_crops": sum(x["operation"] == "SAFE_EDGE_CROP" for x in ledger),
         "edit_pending": sum(x["operation"] not in {"ORIGINAL_REUSE"} for x in ledger),
+        "preparation_seconds": round(time.monotonic() - start, 3),
     }
 
 

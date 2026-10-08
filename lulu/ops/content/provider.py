@@ -14,6 +14,18 @@ class UnknownPaidResult(RuntimeError):
     pass
 
 
+class ProviderBlocked(RuntimeError):
+    pass
+
+
+def credit_exhausted(receipt):
+    raw = (receipt or {}).get("response") or {}
+    return (
+        raw.get("status") == "failed"
+        and (raw.get("error") or {}).get("code") == "credit_balance_exhausted"
+    )
+
+
 def settings():
     keys = {
         "OPENAI_API_KEY",
@@ -87,7 +99,21 @@ class ResponsesProvider:
         previous = self.store.call(fingerprint) or self.store.matching_call(
             digest(body), kind
         )
+        if credit_exhausted(previous):
+            authorization = (job.get("checkpoints") or {}).get(
+                "confirmed_provider_retry"
+            ) or {}
+            if previous["fingerprint"] not in authorization.get(
+                "failed_fingerprints", []
+            ):
+                raise ProviderBlocked("credit_balance_exhausted")
+            fingerprint = digest(
+                [fingerprint, "confirmed-provider-retry", authorization["nonce"]]
+            )
+            previous = self.store.call(fingerprint)
         if previous:
+            if credit_exhausted(previous):
+                raise ProviderBlocked("credit_balance_exhausted")
             if previous["status"] == "DONE":
                 return parse(previous["response"]), {
                     "reused": True,
@@ -188,8 +214,15 @@ class ResponsesProvider:
             "currency": "USD",
             "reason": "PROVIDER_BILLING_NOT_RETURNED",
         }
+        try:
+            parsed = parse(raw)
+        except (RuntimeError, ValueError):
+            self.store.finish_call(fingerprint, "FAILED", raw, usage, cost)
+            if (raw.get("error") or {}).get("code") == "credit_balance_exhausted":
+                raise ProviderBlocked("credit_balance_exhausted") from None
+            raise
         self.store.finish_call(fingerprint, "DONE", raw, usage, cost)
-        return parse(raw), {"reused": False, "fingerprint": fingerprint, **usage}
+        return parsed, {"reused": False, "fingerprint": fingerprint, **usage}
 
 
 def parse(raw):

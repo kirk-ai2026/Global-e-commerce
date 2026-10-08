@@ -1,5 +1,6 @@
 """Copy owned evidence/candidates and media to owned cloud DB/bucket only."""
 
+import argparse
 import json
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import unquote, urlsplit
@@ -14,6 +15,13 @@ from scripts.provision_lulu_ops import gc
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--caches-only",
+        action="store_true",
+        help="Append neutral OCR/media QA caches without touching live jobs or media",
+    )
+    args = parser.parse_args()
     local = OpsRepository()
     credential = Credentials(gc("auth", "print-access-token").decode().strip())
     dsn = urlsplit(
@@ -31,11 +39,12 @@ def main():
         )
         cursor = remote.cursor()
         cursor.execute("SET search_path TO lulu_ops")
-        for statement in SCHEMA.split(";"):
-            if statement.strip():
-                cursor.execute(statement)
+        if not args.caches_only:
+            for statement in SCHEMA.split(";"):
+                if statement.strip():
+                    cursor.execute(statement)
         with local.connect() as c:
-            for table in [
+            tables = [
                 "media",
                 "content_evidence",
                 "content_job",
@@ -43,7 +52,10 @@ def main():
                 "content_revision",
                 "content_vision_cache",
                 "content_media_qa",
-            ]:
+            ]
+            if args.caches_only:
+                tables = ["content_vision_cache", "content_media_qa"]
+            for table in tables:
                 cols = [
                     x["column_name"]
                     for x in c.execute(
@@ -84,6 +96,8 @@ def main():
                 )
         remote.commit()
         remote.close()
+    if args.caches_only:
+        return
     bucket = storage.Client(project="zenheart", credentials=credential).bucket(
         "zenheart-lulu-merch-ops"
     )

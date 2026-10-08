@@ -54,7 +54,10 @@ def register(app, repo, assets, authorized, watermark):
         with repo.connect() as c:
             return {
                 "jobs": c.execute(
-                    "SELECT job_id,cluster_id,profile_id,intent,status,result FROM content_job WHERE status IN ('NEEDS_EVIDENCE','RESULT_UNKNOWN') ORDER BY updated_at DESC"
+                    "SELECT job_id,cluster_id,profile_id,intent,status,result FROM (SELECT DISTINCT ON(cluster_id,profile_id) * FROM content_job WHERE intent<>'MEDIA_EDIT' ORDER BY cluster_id,profile_id,created_at DESC) latest WHERE status IN ('NEEDS_EVIDENCE','RESULT_UNKNOWN','BLOCKED_PROVIDER') ORDER BY updated_at DESC"
+                ).fetchall(),
+                "media_tasks": c.execute(
+                    "SELECT job_id,cluster_id,profile_id,status,result FROM content_job WHERE intent='MEDIA_EDIT' AND status IN ('NEEDS_EVIDENCE','RESULT_UNKNOWN') ORDER BY updated_at DESC"
                 ).fetchall(),
                 "source_media": c.execute(
                     "SELECT cluster_id,coverage->'original_sync_failures' missing FROM content_evidence WHERE jsonb_array_length(coverage->'original_sync_failures')>0"
@@ -158,6 +161,20 @@ def register(app, repo, assets, authorized, watermark):
             "worker": kick()
             if job["status"] == "PENDING"
             else {"status": "EXISTING_TASK"},
+        }
+
+    @app.post("/api/content/provider-resume")
+    def provider_resume(body: dict, x_ops_token: str | None = Header(default=None)):
+        authorized(x_ops_token)
+        if body.get("provider_ready") is not True:
+            raise HTTPException(422, "请先确认模型账户额度已补充")
+        try:
+            result = content.resume_provider_blocked(body.get("reason"))
+        except ValueError as error:
+            raise HTTPException(409, str(error))
+        return {
+            **result,
+            "worker": kick() if result["resumed"] else {"status": "NOTHING_TO_RESUME"},
         }
 
     @app.post("/api/v2/ops/listings/{cluster}/content-candidates/{rid}/activate")

@@ -12,7 +12,7 @@ from .copy import current_page, generate, render_for, review, static_qa
 from .localize import text_for
 from .media import prepare_media
 from .policy import profile, protected_hash
-from .provider import ResponsesProvider, UnknownPaidResult
+from .provider import ProviderBlocked, ResponsesProvider, UnknownPaidResult
 
 
 def _legacy(page, p):
@@ -40,6 +40,8 @@ def run_job(content, assets, job, provider=None):
     p = profile(job["profile_id"])
     if (job.get("recipe") or {}).get("copy_contract") != p.copy_contract:
         raise ValueError("VERSIONED_CONTENT_JOB_REQUIRED")
+    if (job.get("recipe") or {}).get("profile_sha") != p.sha:
+        raise ValueError("VERSIONED_MEDIA_POLICY_JOB_REQUIRED")
     if isinstance(provider, ResponsesProvider) and any(
         provider.config[k] != job["recipe"][j]
         for k, j in [
@@ -208,6 +210,7 @@ def run_job(content, assets, job, provider=None):
         t = time.monotonic()
         media = media_future.result()
         timings["media_wait_seconds"] = round(time.monotonic() - t, 3)
+        timings["media_prepare_seconds"] = media.get("preparation_seconds", 0)
     passed = (
         qa["status"] == "PASS"
         and source_review["status"] == "PASS"
@@ -274,6 +277,12 @@ def run_worker(content, assets, *, job_ids=None, workers=2, max_jobs=None):
 
 
 def _run_worker(content, assets, *, job_ids=None, workers=2, max_jobs=None):
+    if content.provider_blocked():
+        return {
+            "status": "BLOCKED_PROVIDER",
+            "reason": "credit_balance_exhausted",
+            "processed": 0,
+        }
     owner = "lulu-content-" + uuid.uuid4().hex
     results = []
 
@@ -298,6 +307,17 @@ def _run_worker(content, assets, *, job_ids=None, workers=2, max_jobs=None):
                     "reason": str(error),
                 }
                 content.finish(job["job_id"], "RESULT_UNKNOWN", result)
+            except ProviderBlocked as error:
+                result = {
+                    "job_id": job["job_id"],
+                    "cluster_id": job["cluster_id"],
+                    "status": "BLOCKED_PROVIDER",
+                    "reason": str(error),
+                }
+                content.finish(job["job_id"], "BLOCKED_PROVIDER", result)
+                results.append(result)
+                print(json.dumps(result, ensure_ascii=False), flush=True)
+                return
             except Exception as error:
                 result = {
                     "job_id": job["job_id"],

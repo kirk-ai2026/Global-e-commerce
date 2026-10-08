@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import uuid
+from datetime import UTC, datetime
+
 from psycopg.types.json import Jsonb
 
 from lulu.core import digest
@@ -247,9 +250,96 @@ class ContentStore:
     def matching_call(self, request_sha, kind):
         with self.repo.connect() as c:
             return c.execute(
-                "SELECT * FROM content_call WHERE request_meta->>'request_sha'=%s AND kind=%s ORDER BY started_at LIMIT 1",
+                "SELECT * FROM content_call WHERE request_meta->>'request_sha'=%s AND kind=%s ORDER BY (status='DONE' AND coalesce(response->>'status','completed')='completed') DESC,started_at DESC LIMIT 1",
                 (request_sha, kind),
             ).fetchone()
+
+    def normalize_provider_failures(self):
+        """Correct known terminal provider failures without changing stored receipts."""
+        with self.repo.connect() as c:
+            c.execute(
+                "UPDATE content_call SET status='FAILED' WHERE status='DONE' AND response->>'status'='failed'"
+            )
+            rows = c.execute(
+                "UPDATE content_job j SET status='BLOCKED_PROVIDER',result=result || '{\"reason\":\"credit_balance_exhausted\",\"remedy\":\"Replenish provider credits, then explicitly resume the blocked batch\"}'::jsonb,updated_at=now() WHERE j.status='NEEDS_EVIDENCE' AND EXISTS(SELECT 1 FROM content_call call WHERE call.job_id=j.job_id AND call.response->>'status'='failed' AND call.response->'error'->>'code'='credit_balance_exhausted') RETURNING job_id"
+            ).fetchall()
+            return {"normalized_jobs": len(rows)}
+
+    def provider_blocked(self):
+        with self.repo.connect() as c:
+            return c.execute(
+                "SELECT EXISTS(SELECT 1 FROM (SELECT DISTINCT ON(cluster_id,profile_id) status FROM content_job WHERE intent<>'MEDIA_EDIT' ORDER BY cluster_id,profile_id,created_at DESC) latest WHERE status='BLOCKED_PROVIDER') blocked"
+            ).fetchone()["blocked"]
+
+    def resume_provider_blocked(self, reason):
+        if len(str(reason or "").strip()) < 3:
+            raise ValueError("PROVIDER_READY_CONFIRMATION_REASON_REQUIRED")
+        with self.repo.connect() as gate:
+            gate.commit()
+            gate.autocommit = True
+            held = gate.execute(
+                "SELECT pg_try_advisory_lock(hashtext('lulu-content-global-worker')) held"
+            ).fetchone()["held"]
+            if not held:
+                raise ValueError("WORKER_RUNNING_WAIT_FOR_CHECKPOINT")
+            try:
+                with self.repo.connect() as c:
+                    jobs = c.execute(
+                        "SELECT * FROM (SELECT DISTINCT ON(cluster_id,profile_id) * FROM content_job WHERE intent<>'MEDIA_EDIT' ORDER BY cluster_id,profile_id,created_at DESC) latest WHERE status='BLOCKED_PROVIDER'"
+                    ).fetchall()
+                resumed = []
+                for old in jobs:
+                    with self.repo.connect() as c:
+                        receipts = c.execute(
+                            "SELECT call.fingerprint FROM content_call call JOIN content_job j USING(job_id) WHERE j.cluster_id=%s AND j.profile_id=%s AND call.response->>'status'='failed' AND call.response->'error'->>'code'='credit_balance_exhausted'",
+                            (old["cluster_id"], old["profile_id"]),
+                        ).fetchall()
+                    if not receipts:
+                        continue
+                    target = self.create_job(
+                        self.repo.get(old["cluster_id"]),
+                        old["profile_id"],
+                        old["intent"],
+                    )
+                    if target["status"] not in {"BLOCKED_PROVIDER", "PENDING"}:
+                        continue
+                    authorization = {
+                        "nonce": uuid.uuid4().hex,
+                        "reason": str(reason).strip(),
+                        "confirmed_at": datetime.now(UTC).isoformat(),
+                        "failed_fingerprints": [r["fingerprint"] for r in receipts],
+                        "previous_job_id": old["job_id"],
+                    }
+                    with self.repo.connect() as c:
+                        c.execute(
+                            "UPDATE content_job SET status='PENDING',checkpoints=checkpoints || %s,result='{}',updated_at=now() WHERE job_id=%s",
+                            (
+                                Jsonb({"confirmed_provider_retry": authorization}),
+                                target["job_id"],
+                            ),
+                        )
+                        if target["job_id"] != old["job_id"]:
+                            c.execute(
+                                "UPDATE content_job SET status='SUPERSEDED',result=result || %s,updated_at=now() WHERE job_id=%s",
+                                (
+                                    Jsonb({"replacement_job_id": target["job_id"]}),
+                                    old["job_id"],
+                                ),
+                            )
+                        c.execute(
+                            "INSERT INTO history(cluster_id,event_type,note,payload) VALUES(%s,'CONTENT_PROVIDER_RESUME',%s,%s)",
+                            (old["cluster_id"], reason, Jsonb(authorization)),
+                        )
+                    resumed.append(target["job_id"])
+                return {
+                    "jobs": resumed,
+                    "resumed": len(resumed),
+                    "unknown_result_jobs_resumed": 0,
+                }
+            finally:
+                gate.execute(
+                    "SELECT pg_advisory_unlock(hashtext('lulu-content-global-worker'))"
+                )
 
     def finish_call(self, fingerprint, status, response, usage=None, cost=None):
         with self.repo.connect() as c:
@@ -401,6 +491,9 @@ class ContentStore:
                 ).fetchone()["n"],
                 "jobs": c.execute(
                     "SELECT status,count(*) n FROM content_job GROUP BY status"
+                ).fetchall(),
+                "current_product_jobs": c.execute(
+                    "SELECT profile_id,status,count(*) n FROM (SELECT DISTINCT ON(cluster_id,profile_id) * FROM content_job WHERE intent<>'MEDIA_EDIT' ORDER BY cluster_id,profile_id,created_at DESC) latest GROUP BY profile_id,status"
                 ).fetchall(),
                 "revisions": c.execute(
                     "SELECT method,status,count(*) n FROM (SELECT DISTINCT ON(cluster_id,profile_id) * FROM content_revision ORDER BY cluster_id,profile_id,created_at DESC) current GROUP BY method,status"

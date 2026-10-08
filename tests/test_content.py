@@ -14,11 +14,16 @@ from lulu.ops.content.copy import render_for, static_qa
 from lulu.ops.content.media import (
     assemble_html,
     assess_image,
+    external_language_status,
     prepare_media,
     safe_edge_crop_box,
 )
 from lulu.ops.content.policy import profile, protected_hash
-from lulu.ops.content.provider import ResponsesProvider, UnknownPaidResult
+from lulu.ops.content.provider import (
+    ProviderBlocked,
+    ResponsesProvider,
+    UnknownPaidResult,
+)
 from lulu.ops.content.repository import ContentStore
 from lulu.ops.projection import effective, watermark
 from lulu.ops.repository import OpsRepository
@@ -190,6 +195,39 @@ def test_channel_and_wrong_sku_information_never_enters_description(content):
         assert qa["status"] == "SOURCE_ONLY"
 
 
+def test_english_gate_covers_non_cjk_scripts_and_unconfirmed_latin_text():
+    external = {"placement": "EXTERNAL", "category": "PRODUCT_FACT"}
+    for value in ["วิตามิน", "витамины", "保湿", "보습", "保湿成分"]:
+        assert (
+            external_language_status([{**external, "source_text": value}])
+            == "NON_ENGLISH"
+        )
+    assert (
+        external_language_status(
+            [{**external, "source_text": "Crème hydratante", "language": "fr"}]
+        )
+        == "NON_ENGLISH"
+    )
+    assert (
+        external_language_status(
+            [{**external, "source_text": "Hydratation quotidienne"}]
+        )
+        == "UNCONFIRMED"
+    )
+    assert (
+        external_language_status(
+            [{**external, "source_text": "Vitamin C 50µg", "language": "en-CA"}]
+        )
+        == "ENGLISH_OR_NO_EXTERNAL_TEXT"
+    )
+    assert (
+        external_language_status(
+            [{**external, "source_text": "วิตามิน", "placement": "PACKAGE"}]
+        )
+        == "ENGLISH_OR_NO_EXTERNAL_TEXT"
+    )
+
+
 def test_html_assets_are_owned_and_safe(content):
     repo, store, assets, bundle = content
     m = prepare_media(store.evidence("sample"), profile(), {"sku1"})[
@@ -281,6 +319,84 @@ def test_unknown_paid_result_is_not_resent(content, monkeypatch):
         with pytest.raises(UnknownPaidResult):
             provider.call(job, "COPY", "instructions", {}, {"type": "object"})
     assert len(calls) == 1
+
+
+def test_credit_failure_requires_explicit_resume_and_keeps_unknown_results_paused(
+    content, monkeypatch
+):
+    repo, store, _, _ = content
+    job = store.create_job(repo.get("sample"))
+    calls = []
+
+    def response(*args, **kwargs):
+        calls.append(True)
+        raw = (
+            {
+                "id": "resp_rejected",
+                "status": "failed",
+                "error": {"code": "credit_balance_exhausted"},
+            }
+            if len(calls) == 1
+            else {
+                "id": "resp_completed",
+                "status": "completed",
+                "output_text": '{"ok":true}',
+            }
+        )
+        return io.BytesIO(json.dumps(raw).encode())
+
+    monkeypatch.setattr("urllib.request.urlopen", response)
+    config = {
+        "api_key": "test",
+        "model": "test",
+        "vision_model": "vision",
+        "reasoning": "medium",
+        "base_url": "https://api.openai.com/v1",
+    }
+    provider = ResponsesProvider(store, config)
+    for _ in range(2):
+        with pytest.raises(ProviderBlocked):
+            provider.call(job, "COPY", "instructions", {}, {"type": "object"})
+    assert len(calls) == 1
+    with repo.connect() as c:
+        receipt = c.execute(
+            "SELECT * FROM content_call WHERE job_id=%s", (job["job_id"],)
+        ).fetchone()
+    assert receipt["status"] == "FAILED" and receipt["cost"]["amount"] is None
+    store.finish(job["job_id"], "NEEDS_EVIDENCE", {"reason": "old provider error"})
+    assert store.normalize_provider_failures()["normalized_jobs"] == 1
+    assert store.provider_blocked()
+    resumed = store.resume_provider_blocked("Test confirms replenished credits")
+    assert resumed["jobs"] == [job["job_id"]] and not store.provider_blocked()
+    job = store.job(job["job_id"])
+    assert provider.call(job, "COPY", "instructions", {}, {"type": "object"})[0] == {
+        "ok": True
+    }
+    assert provider.call(job, "COPY", "instructions", {}, {"type": "object"})[1][
+        "reused"
+    ]
+    assert len(calls) == 2
+    store.finish(job["job_id"], "PASS", {})
+    unknown = store.create_job(repo.get("sample"), "tw-zh-Hant-strict-v1")
+    store.start_call(
+        unknown["job_id"], "unknown_paid", "SOURCE_REVIEW", {"request_sha": "unknown"}
+    )
+    store.finish_call("unknown_paid", "RESULT_UNKNOWN", {"reason": "transport timeout"})
+    store.finish(unknown["job_id"], "RESULT_UNKNOWN", {})
+    assert store.resume_provider_blocked("Credits remain available")["resumed"] == 0
+    assert (
+        store.job(unknown["job_id"])["status"] == "RESULT_UNKNOWN" and len(calls) == 2
+    )
+
+
+def test_worker_refuses_a_changed_media_contract_before_paid_work(content):
+    from lulu.ops.content.worker import run_job
+
+    repo, store, assets, _ = content
+    job = store.create_job(repo.get("sample"), "en-strict-v1")
+    job["recipe"]["profile_sha"] = "older-language-gate"
+    with pytest.raises(ValueError, match="VERSIONED_MEDIA_POLICY_JOB_REQUIRED"):
+        run_job(store, assets, job, provider=object())
 
 
 def test_complete_paid_receipt_reused_after_restart(content, monkeypatch):

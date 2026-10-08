@@ -1,0 +1,143 @@
+{
+  "captured_at": "2026-10-08T13:14:54.232473+00:00",
+  "url": "https://lulu-merch-ops-wiv3tqv5ua-de.a.run.app",
+  "canary_products": 10,
+  "canary_statuses": {
+    "QA_PASS": 9,
+    "HOLD": 1
+  },
+  "pola_source_images": 11,
+  "pola_ocr_regions": 115,
+  "pola_cad": "23.33",
+  "registered_images_readable": true,
+  "export_preview_assembly_consistent": true,
+  "stale_activation_rejected": true,
+  "unconfirmed_provider_resume_rejected": true,
+  "content_activation_writes": 0,
+  "shopify_writes": 0,
+  "upstream_writes": 0,
+  "current_product_jobs": [
+    {
+      "profile_id": "tw-zh-Hant-strict-v1",
+      "status": "BLOCKED_PROVIDER",
+      "n": 1
+    },
+    {
+      "profile_id": "en-strict-v1",
+      "status": "BLOCKED_PROVIDER",
+      "n": 1
+    },
+    {
+      "profile_id": "ca-zh-Hans-lite-v1",
+      "status": "BLOCKED_PROVIDER",
+      "n": 18
+    },
+    {
+      "profile_id": "ca-zh-Hans-lite-v1",
+      "status": "PASS",
+      "n": 65
+    },
+    {
+      "profile_id": "ca-zh-Hans-lite-v1",
+      "status": "NEEDS_EVIDENCE",
+      "n": 2
+    },
+    {
+      "profile_id": "ca-zh-Hans-lite-v1",
+      "status": "RESULT_UNKNOWN",
+      "n": 1
+    }
+  ],
+  "samples": [
+    {
+      "cluster_id": "HUR4-098f070812a866b62761",
+      "candidate_status": "QA_PASS",
+      "method": "SOURCE_GROUNDED_REBUILD",
+      "revision_id": "LCR-d1bfc5ded73e50b8832ee5477e85",
+      "description_media": 3,
+      "image_edits": 0,
+      "activated": false
+    },
+    {
+      "cluster_id": "HUR4-12c8008867c1dff09cf8",
+      "candidate_status": "QA_PASS",
+      "method": "SOURCE_GROUNDED_REBUILD",
+      "revision_id": "LCR-3ed28cc0af1e05f0ca666e8a79bd",
+      "description_media": 7,
+      "image_edits": 0,
+      "activated": false
+    },
+    {
+      "cluster_id": "HUR4-245568018ed8110dca37",
+      "candidate_status": "QA_PASS",
+      "method": "SOURCE_GROUNDED_REBUILD",
+      "revision_id": "LCR-9100eef73de980639cdf784e417f",
+      "description_media": 15,
+      "image_edits": 0,
+      "activated": false
+    },
+    {
+      "cluster_id": "HUR4-197f58a861971d35f1af",
+      "candidate_status": "QA_PASS",
+      "method": "SOURCE_GROUNDED_REBUILD",
+      "revision_id": "LCR-8bf2f54528e83398ab36ea2454a6",
+      "description_media": 0,
+      "image_edits": 0,
+      "activated": false
+    },
+    {
+      "cluster_id": "HUR4-9b939cf0c447092ef091",
+      "candidate_status": "HOLD",
+      "method": "SOURCE_GROUNDED_REBUILD",
+      "revision_id": "LCR-f1d713b42d8f6e82fc1adde1c660",
+      "description_media": 11,
+      "image_edits": 0,
+      "activated": false
+    },
+    {
+      "cluster_id": "HUR4-159a8612f5906d004244",
+      "candidate_status": "QA_PASS",
+      "method": "SOURCE_GROUNDED_REBUILD",
+      "revision_id": "LCR-04d64595c7e799d8889f85f12da5",
+      "description_media": 0,
+      "image_edits": 0,
+      "activated": false
+    },
+    {
+      "cluster_id": "HUR4-52ef69b6f21a52bc2571",
+      "candidate_status": "QA_PASS",
+      "method": "SOURCE_GROUNDED_REBUILD",
+      "revision_id": "LCR-2ebefab8d07b3d243edfe48e36b1",
+      "description_media": 14,
+      "image_edits": 0,
+      "activated": false
+    },
+    {
+      "cluster_id": "HUR4-0aed27ebebf987345557",
+      "candidate_status": "QA_PASS",
+      "method": "SOURCE_GROUNDED_REBUILD",
+      "revision_id": "LCR-5e0cc120ace411e0a71fba53c7dc",
+      "description_media": 10,
+      "image_edits": 0,
+      "activated": false
+    },
+    {
+      "cluster_id": "HUR4-5cfbaabe629ed1b71485",
+      "candidate_status": "QA_PASS",
+      "method": "SOURCE_GROUNDED_REBUILD",
+      "revision_id": "LCR-b3f0991af41a4f3fb08f8ddec4f8",
+      "description_media": 17,
+      "image_edits": 0,
+      "activated": false
+    },
+    {
+      "cluster_id": "HUR4-9eea0e5eb93b2a255520",
+      "candidate_status": "QA_PASS",
+      "method": "SOURCE_GROUNDED_REBUILD",
+      "revision_id": "LCR-e62b9c426080bc65b4835d71a083",
+      "description_media": 2,
+      "image_edits": 0,
+      "activated": false
+    }
+  ]
+}

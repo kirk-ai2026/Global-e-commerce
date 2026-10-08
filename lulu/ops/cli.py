@@ -33,6 +33,10 @@ def main():
     work.add_argument("--jobs", nargs="*")
     work.add_argument("--workers", type=int, default=2)
     content_sub.add_parser("report")
+    content_sub.add_parser("normalize-provider-failures")
+    resume = content_sub.add_parser("resume-provider")
+    resume.add_argument("--provider-ready", action="store_true", required=True)
+    resume.add_argument("--reason", required=True)
     args = p.parse_args()
     repo = OpsRepository()
     if args.cmd == "content":
@@ -62,6 +66,10 @@ def main():
             value = run_worker(
                 content, AssetStore(), job_ids=args.jobs, workers=args.workers
             )
+        elif args.content_cmd == "normalize-provider-failures":
+            value = content.normalize_provider_failures()
+        elif args.content_cmd == "resume-provider":
+            value = content.resume_provider_blocked(args.reason)
         else:
             value = content.report()
     elif args.cmd == "migrate":
