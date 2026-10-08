@@ -146,9 +146,12 @@ class OpsRepository:
 
     def all_listings(self):
         with self.connect() as c:
-            return c.execute(
+            rows = c.execute(
                 "SELECT l.*,s.payload source FROM listing l JOIN source_product s USING(snapshot_id) ORDER BY l.cluster_id"
             ).fetchall()
+            from .content.repository import ContentStore
+
+            return ContentStore(self).decorate(rows, c)
 
     def get(self, cluster):
         with self.connect() as c:
@@ -161,6 +164,9 @@ class OpsRepository:
                     "SELECT event_type,note,created_at,payload FROM history WHERE cluster_id=%s ORDER BY event_id DESC LIMIT 100",
                     (cluster,),
                 ).fetchall()
+                from .content.repository import ContentStore
+
+                ContentStore(self).decorate([row], c)
             return row
 
     def latest_audit(self):
@@ -200,6 +206,9 @@ class OpsRepository:
             fx = c.execute(
                 "SELECT payload FROM fx_snapshot ORDER BY date DESC,created_at DESC LIMIT 1"
             ).fetchone()
+            from .content.repository import ContentStore
+
+            ContentStore(self).decorate([row], c)
             actual = current_watermark(row, fx["payload"] if fx else None)
             if expected != actual:
                 raise ValueError("SOURCE_CHANGED_REVIEW")

@@ -22,9 +22,49 @@ def main():
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=int(os.getenv("PORT", "8897")))
     sub.add_parser("audit")
+    content_parser = sub.add_parser("content")
+    content_sub = content_parser.add_subparsers(dest="content_cmd", required=True)
+    content_sub.add_parser("migrate")
+    content_sub.add_parser("import-evidence")
+    enqueue = content_sub.add_parser("enqueue")
+    enqueue.add_argument("--profile", default="ca-zh-Hans-lite-v1")
+    enqueue.add_argument("--clusters", nargs="*")
+    work = content_sub.add_parser("work")
+    work.add_argument("--jobs", nargs="*")
+    work.add_argument("--workers", type=int, default=2)
+    content_sub.add_parser("report")
     args = p.parse_args()
     repo = OpsRepository()
-    if args.cmd == "migrate":
+    if args.cmd == "content":
+        from .content.repository import ContentStore
+
+        content = ContentStore(repo)
+        if args.content_cmd == "migrate":
+            content.migrate()
+            value = {"status": "CONTENT_MIGRATED"}
+        elif args.content_cmd == "import-evidence":
+            from .content.source import FrozenSourceReader, import_evidence
+
+            with FrozenSourceReader() as reader:
+                value = import_evidence(repo, content, AssetStore(), reader)
+        elif args.content_cmd == "enqueue":
+            value = {
+                "jobs": [
+                    content.create_job(row, args.profile)["job_id"]
+                    for row in repo.all_listings()
+                    if row["scope"] == "INCLUDED"
+                    and (not args.clusters or row["cluster_id"] in args.clusters)
+                ]
+            }
+        elif args.content_cmd == "work":
+            from .content.worker import run_worker
+
+            value = run_worker(
+                content, AssetStore(), job_ids=args.jobs, workers=args.workers
+            )
+        else:
+            value = content.report()
+    elif args.cmd == "migrate":
         repo.migrate()
         value = {"status": "MIGRATED", "schema": repo.schema}
     elif args.cmd == "import":

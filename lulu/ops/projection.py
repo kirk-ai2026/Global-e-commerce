@@ -61,6 +61,7 @@ def watermark(row, fx):
             row["status"],
             (fx or {}).get("fx_id"),
             row.get("source_changed"),
+            (row.get("content_active") or {}).get("revision_id"),
             VERSION,
         ]
     )
@@ -92,6 +93,30 @@ def effective(row, fx):
             ),
         }
     )
+    active = row.get("content_active")
+    c["content_origin"] = "LEGACY_LOCALIZED"
+    c["description_media"] = []
+    if active:
+        from .content.media import assemble_html
+
+        body = active["body"]
+        text = overrides.get("description_html") or body["description_text_html"]
+        c["description_media"] = body.get("description_media") or []
+        c["description_text_html"] = safe_html(hans(text))
+        c["description_html"] = assemble_html(
+            c["description_text_html"], c["description_media"]
+        )
+        c["content_origin"] = (
+            "OPERATOR_OVERRIDE"
+            if overrides.get("description_html")
+            else active["method"]
+        )
+        c["content_revision_id"] = active["revision_id"]
+        c["content_profile_id"] = active["profile_id"]
+        c["content_qa"] = active["qa"]
+        c["evidence_sha"] = body["evidence_sha"]
+    else:
+        c["description_text_html"] = c["description_html"]
     region = row["brand_fact"].get("code", "")
     c["brand_country_code"] = region
     c["brand_country_name"] = REGIONS.get(region, "待确认")
@@ -232,8 +257,8 @@ def effective(row, fx):
             else "C1_DRAFT_MINIMUM",
         },
         "edit": {
-            k: c[k]
-            for k in ["title", "description_html", "seo_title", "seo_description"]
+            **{k: c[k] for k in ["title", "seo_title", "seo_description"]},
+            "description_html": c["description_text_html"],
         },
         "history": row.get("history", []),
         "hidden_media": hidden,

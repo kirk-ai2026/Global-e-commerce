@@ -19,14 +19,14 @@ lulu = "lulu.cli:main"
 include = ["lulu*"]
 
 [tool.setuptools.package-data]
-lulu = ["templates/*.html", "migrations/*.sql", "ops/static/*"]
+lulu = ["templates/*.html", "migrations/*.sql", "ops/static/*", "ops/content/upstream/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
 [tool.ruff]
 target-version = "py311"
-extend-exclude = ["lulu/vendor"]
+extend-exclude = ["lulu/vendor", "lulu/ops/content/upstream"]
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "I", "UP"]

@@ -1,0 +1,12 @@
+{
+  "source_project": "New project/market_compare",
+  "source_files": {
+    "shadow_merch_editor.py": "620a1e9f96cebf9921ed6d0762a6e57f9276e80afd3e813d07f4cd36809c3538",
+    "shadow_merch_contracts.py": "47b935b6d819ff85b3ddb773d6e0ed723b39549892e0f04731abb7df5ab7c141",
+    "shadow_merch_copy_evidence.py": "8dd79541fcab2091f28e359feb01d2b0503aecd44a8a07eb5ac75e3cdcbaf26b",
+    "ops_source_text.py": "24452c1be6466202a55650e8603d0979f774845b61530de10029be6d9c2dd26b"
+  },
+  "copy_intent": "TAIWAN_MARKETING_COPY_V9",
+  "evidence_schema": "product-evidence-bundle-v6-source-copy-segments",
+  "extraction": "pure render/schema/ordered-evidence helpers; HTTP runtime omitted"
+}

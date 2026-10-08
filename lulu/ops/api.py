@@ -233,6 +233,12 @@ def create_app(repo=None, assets=None, passphrase=None):
         row = repo.get(cluster)
         if not row:
             raise HTTPException(404, "商品不存在")
+        from .content.api import source_view
+        from .content.repository import ContentStore
+
+        full = source_view(ContentStore(repo), row)
+        if full["available"]:
+            return full
         upstream = row["source"]["upstream"]
         return {
             "kind": "SOURCE_AUDIT",
@@ -327,6 +333,9 @@ def create_app(repo=None, assets=None, passphrase=None):
             "shopify_writes": 0,
         }
 
+    from .content.api import register
+
+    register(app, repo, assets, authorized, watermark)
     return app
 
 
