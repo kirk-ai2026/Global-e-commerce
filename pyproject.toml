@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lulu-commerce"
+version = "0.1.0"
+description = "Lulu Tmall Global evidence-backed Simplified Chinese merchandising"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.30,<1", "psycopg[binary]>=3.2,<4", "opencc-python-reimplemented==0.1.7", "Pillow>=10,<13"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "httpx>=0.27,<1"]
+
+[project.scripts]
+lulu = "lulu.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["lulu*"]
+
+[tool.setuptools.package-data]
+lulu = ["templates/*.html", "migrations/*.sql"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+extend-exclude = ["lulu/vendor"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP"]

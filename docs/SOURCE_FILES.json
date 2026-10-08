@@ -1,0 +1,22 @@
+[
+  {
+    "file": "/Users/apple/Documents/New project/market_compare/market_compare/source_sku_contract.py",
+    "sha256": "9c329ffd01bf1571c452739fb8fd0e1119c3dbc7699801431320b90bd0191f40"
+  },
+  {
+    "file": "/Users/apple/Documents/New project/market_compare/market_compare/current_spu_catalog.py",
+    "sha256": "195528c04e96b8e25524e87b9f0c09305f70cb5d83741d3554f88688e912620a"
+  },
+  {
+    "file": "/Users/apple/Documents/New project/market_compare/market_compare/market_listing.py",
+    "sha256": "b1134d2303fc662bd4688a8762116f69d681c01ffb42445f18cccca2e69e9767"
+  },
+  {
+    "file": "/Users/apple/Documents/New project/market_compare/market_compare/cloud_merch_store.py",
+    "sha256": "17779bbb668e2c328c94ef04dabb40087048777b6a76d4c6e71bba95847aed30"
+  },
+  {
+    "file": "/Users/apple/Documents/New project/market_compare/market_compare/cloud_merch_shopify_ops.py",
+    "sha256": "f2cecd2e84436dc9ec923a87bde46c9120539773b60908db557472bf8e2ca839"
+  }
+]

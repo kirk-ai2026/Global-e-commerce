@@ -1,0 +1,10 @@
+FROM python:3.12-slim
+WORKDIR /app
+COPY pyproject.toml README.md requirements.lock.txt ./
+COPY lulu ./lulu
+RUN pip install --no-cache-dir -r requirements.lock.txt && pip install --no-cache-dir --no-deps .
+RUN useradd --create-home --uid 10001 lulu && mkdir /data && chown lulu /data
+USER lulu
+ENV LULU_DATA_DIR=/data
+EXPOSE 8080
+CMD ["python", "-m", "lulu.cli", "serve", "--host", "0.0.0.0", "--port", "8080"]
